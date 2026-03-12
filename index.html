@@ -309,15 +309,31 @@
         </div>
     </div>
 
-    <div class="hero-card">
-        <h4 style="margin-bottom: 1.5rem; color: var(--primary-dark);">Co zyskujesz?</h4>
-        <ul class="checklist">
-            <li><strong>Bezpieczeństwo prawne</strong> – pełna zgodność z PIP i GIOŚ.</li>
-            <li><strong>Optymalizacja kosztów</strong> – redukcja opłat środowiskowych.</li>
-            <li><strong>Prestiż</strong> – wdrożenie standardów ISO i ESG.</li>
-            <li><strong>Spokój</strong> – stały nadzór ekspertów 24/7.</li>
-        </ul>
-    </div>
+<div class="hero-card">
+    <h4 style="margin-bottom: 1.5rem; color: var(--primary-dark); font-size: 1.2rem;">Co zyskujesz?</h4>
+    <ul class="checklist">
+        <li>
+            <div>
+                <strong>Bezpieczeństwo prawne</strong> – pełna zgodność z wymogami PIP oraz GIOŚ.
+            </div>
+        </li>
+        <li>
+            <div>
+                <strong>Optymalizacja kosztów</strong> – realna redukcja opłat środowiskowych.
+            </div>
+        </li>
+        <li>
+            <div>
+                <strong>Prestiż i rozwój</strong> – skuteczne wdrożenie standardów ISO oraz ESG.
+            </div>
+        </li>
+        <li>
+            <div>
+                <strong>Spokój i wsparcie</strong> – stały nadzór ekspertów dostępny 24/7.
+            </div>
+        </li>
+    </ul>
+</div>
 </section>
 
 <section id="uslugi" class="container fade">
@@ -374,20 +390,21 @@
             </div>
 
             <div class="contact-box">
-                <h3 style="margin-bottom: 1rem;">Zapytaj o ofertę</h3>
-                <form id="contact-form">
-                    <label for="name">Imię lub Nazwa firmy</label>
-                    <input type="text" id="name" placeholder="np. Jan Kowalski / Eco-Fix Sp. z o.o.">
+    <h3 style="margin-bottom: 1rem;">Zapytaj o ofertę</h3>
+    <form id="contact-form">
+        <label for="name">Imię lub Nazwa firmy</label>
+        <input type="text" id="name" name="name" placeholder="np. Jan Kowalski / Eco-Fix Sp. z o.o." required>
 
-                    <label for="email">E-mail kontaktowy</label>
-                    <input type="email" id="email" placeholder="twoj@email.pl">
+        <label for="email">E-mail kontaktowy</label>
+        <input type="email" id="email" name="email" placeholder="twoj@email.pl" required>
 
-                    <label for="msg">W czym możemy pomóc?</label>
-                    <textarea id="msg" rows="4" placeholder="Opisz krótko profil Twojej działalności..."></textarea>
+        <label for="msg">W czym możemy pomóc?</label>
+        <textarea id="msg" name="msg" rows="4" placeholder="Opisz krótko profil Twojej działalności..." required></textarea>
 
-                    <button class="btn btn-primary" type="submit" style="width: 100%;">Wyślij zapytanie</button>
-                </form>
-            </div>
+        <button class="btn btn-primary" type="submit" id="submit-btn" style="width: 100%;">Wyślij zapytanie</button>
+    </form>
+    <div id="form-message" style="display:none; margin-top: 1rem; padding: 1rem; border-radius: 10px; text-align: center;"></div>
+</div>
         </div>
     </div>
 </section>
