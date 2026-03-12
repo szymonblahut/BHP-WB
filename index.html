@@ -389,7 +389,7 @@
                 </ul>
             </div>
 
-            <div class="contact-box">
+            <div class="contact-box"> 
     <h3 style="margin-bottom: 1rem;">Zapytaj o ofertę</h3>
     <form id="contact-form">
         <label for="name">Imię lub Nazwa firmy</label>
@@ -441,6 +441,29 @@
         this.reset();
     });
 </script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyphq9baWf9prDfiDdHHjgvqWrXm8-Wo72vMICRZ3v9PCXomD65K5M8t3vFU7etpJj7/exec';
+    const form = document.getElementById('contact-form');
+    const btn = document.getElementById('submit-btn');
 
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = 'Wysyłanie...';
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert('Dziękujemy! Dane zostały zapisane w arkuszu.');
+                btn.disabled = false;
+                btn.innerText = 'Wyślij zapytanie';
+                form.reset();
+            })
+            .catch(error => {
+                alert('Błąd! Spróbuj ponownie.');
+                btn.disabled = false;
+                btn.innerText = 'Wyślij zapytanie';
+            });
+    });
+</script>
 </body>
 </html>
