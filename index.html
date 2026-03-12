@@ -210,10 +210,11 @@
 
         .checklist { list-style: none; }
         .checklist li {
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: flex-start;
-        }
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center; /* Zapewnia równe wyrównanie tekstu do ikonki */
+    gap: 1rem; /* Tworzy stały odstęp */
+}
 
         .checklist li::before {
             content: '✓';
@@ -476,5 +477,6 @@
             });
     });
 </script>
+
 
 
