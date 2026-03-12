@@ -1,409 +1,428 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<title>SafeEnv Consulting – BHP, OZ, Zarządzanie środowiskowe</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Usługi w zakresie bezpieczeństwa i higieny pracy, ochrony środowiska oraz systemów zarządzania środowiskowego.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BHP i Ochrona Środowiska | SafeEnv Consulting</title>
+    <meta name="description" content="Kompleksowe wsparcie BHP, ochrony środowiska oraz wdrażanie systemów ISO 14001 dla firm produkcyjnych i usługowych.">
 
-<style>
-:root{
---primary:#0b7285;
---primary-dark:#074554;
---accent:#94d82d;
---bg:#f5f7fa;
---text:#1f2933;
-}
+    <style>
+        :root {
+            --primary: #0b7285;
+            --primary-dark: #074554;
+            --accent: #94d82d;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --text: #1f2933;
+            --text-light: #4b5563;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-*{box-sizing:border-box;margin:0;padding:0}
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body{
-font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.6;
-}
+        html { scroll-behavior: smooth; }
 
-a{color:inherit;text-decoration:none}
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
 
-header{
-position:sticky;
-top:0;
-z-index:10;
-background:rgba(245,247,250,.96);
-backdrop-filter:blur(8px);
-border-bottom:1px solid #dde2eb
-}
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+        }
 
-.nav{
-max-width:1100px;
-margin:auto;
-padding:.75rem 1.5rem;
-display:flex;
-align-items:center;
-justify-content:space-between
-}
+        /* --- Header --- */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eef2f6;
+            z-index: 1000;
+        }
 
-.logo{
-font-weight:700;
-font-size:1.1rem;
-letter-spacing:.04em;
-text-transform:uppercase;
-color:var(--primary-dark)
-}
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
 
-.logo span{color:var(--accent)}
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
 
-.nav-links{
-display:flex;
-gap:1.5rem;
-font-size:.95rem
-}
+        .logo span { color: var(--accent); }
 
-.nav-links a{
-position:relative;
-padding-bottom:.15rem
-}
+        nav a {
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
-.nav-links a::after{
-content:"";
-position:absolute;
-left:0;
-bottom:0;
-width:0;
-height:2px;
-background:var(--primary);
-transition:.2s
-}
+        nav a:hover { color: var(--primary); }
 
-.nav-links a:hover::after{width:100%}
+        /* --- Hero Section --- */
+        .hero {
+            padding: 6rem 0;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
 
-.hero{
-max-width:1100px;
-margin:auto;
-padding:3.5rem 1.5rem 3rem;
-display:grid;
-grid-template-columns:3fr 2.5fr;
-gap:2.5rem;
-align-items:center
-}
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+            letter-spacing: -0.02em;
+        }
 
-.hero-badge{
-display:inline-flex;
-align-items:center;
-gap:.5rem;
-padding:.25rem .75rem;
-border-radius:999px;
-background:#e3fafc;
-color:var(--primary-dark);
-font-size:.8rem;
-margin-bottom:1rem
-}
+        .hero p {
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 500px;
+        }
 
-.hero-badge span{
-width:8px;
-height:8px;
-border-radius:999px;
-background:var(--accent)
-}
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 1.8rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
 
-.hero h1{
-font-size:clamp(2rem,3vw+1rem,2.8rem);
-margin-bottom:1rem;
-color:var(--primary-dark)
-}
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(11, 114, 133, 0.3);
+        }
 
-.hero h1 span{color:var(--primary)}
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
 
-.hero p{
-font-size:1rem;
-max-width:34rem;
-margin-bottom:1.5rem
-}
+        .btn-outline {
+            border: 2px solid #e2e8f0;
+            background: transparent;
+            color: var(--text);
+            margin-left: 0.8rem;
+        }
 
-.hero-list{list-style:none;margin-bottom:2rem}
+        .btn-outline:hover { background: #f1f5f9; }
 
-.hero-list li{
-display:flex;
-align-items:center;
-gap:.5rem;
-font-size:.95rem
-}
+        .hero-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+            position: relative;
+        }
 
-.hero-list li+li{margin-top:.35rem}
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -10px; right: -10px;
+            width: 50px; height: 50px;
+            background: var(--accent);
+            z-index: -1;
+            border-radius: 12px;
+            opacity: 0.3;
+        }
 
-.hero-list .dot{
-width:9px;
-height:9px;
-border-radius:999px;
-background:var(--accent)
-}
+        /* --- Services --- */
+        section { padding: 5rem 0; }
 
-.hero-actions{
-display:flex;
-flex-wrap:wrap;
-gap:.75rem
-}
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
 
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:.7rem 1.4rem;
-border-radius:999px;
-border:none;
-cursor:pointer;
-font-size:.95rem;
-font-weight:600
-}
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
 
-.btn-primary{
-background:var(--primary);
-color:#fff;
-box-shadow:0 8px 18px rgba(11,114,133,.25)
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
 
-.btn-outline{
-background:transparent;
-border:1px solid #c4d0e3;
-color:var(--primary-dark)
-}
+        .card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid #f0f4f8;
+            transition: var(--transition);
+        }
 
-.hero-aside{
-background:#fff;
-border-radius:1.25rem;
-padding:1.5rem;
-box-shadow:0 18px 45px rgba(15,23,42,.08);
-border:1px solid #e1e7f0
-}
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
 
-.hero-aside h2{
-font-size:1.05rem;
-margin-bottom:.75rem;
-color:var(--primary-dark)
-}
+        .card h3 {
+            margin: 1rem 0;
+            color: var(--primary-dark);
+        }
 
-.aside-list{list-style:none;font-size:.9rem}
+        .tag-container { margin-top: 1.5rem; }
 
-.aside-list li+li{margin-top:.4rem}
+        .tag {
+            background: #f1f5f9;
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 6px;
+            margin-right: 0.4rem;
+        }
 
-main{
-background:radial-gradient(circle at top left,#e3fafc 0,#f5f7fa 40%)
-}
+        /* --- Collaboration & Form --- */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
 
-section{
-max-width:1100px;
-margin:auto;
-padding:2.5rem 1.5rem
-}
+        .checklist { list-style: none; }
+        .checklist li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: flex-start;
+        }
 
-.section-header{margin-bottom:1.75rem}
+        .checklist li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 1rem;
+            background: #f4fce3;
+            width: 24px; height: 24px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
 
-.section-kicker{
-text-transform:uppercase;
-letter-spacing:.12em;
-font-size:.75rem;
-color:#6b7280;
-margin-bottom:.4rem
-}
+        .contact-box {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
 
-.section-title{
-font-size:1.5rem;
-color:var(--primary-dark);
-margin-bottom:.4rem
-}
+        input, textarea {
+            width: 100%;
+            padding: 0.9rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1.2rem;
+            border-radius: 10px;
+            border: 2px solid #eef2f6;
+            font-family: inherit;
+            transition: var(--transition);
+        }
 
-.section-subtitle{
-font-size:.95rem;
-color:#4b5563;
-max-width:34rem
-}
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #fff;
+        }
 
-.grid-3{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:1.5rem
-}
+        /* --- Footer --- */
+        footer {
+            background: #1f2933;
+            color: #94a3b8;
+            padding: 3rem 0;
+            text-align: center;
+        }
 
-.card{
-background:#fff;
-border-radius:1rem;
-padding:1.25rem;
-border:1px solid #e1e7f0;
-box-shadow:0 10px 30px rgba(15,23,42,.04)
-}
+        /* --- Animations --- */
+        .fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
 
-.card h3{
-font-size:1rem;
-margin-bottom:.4rem;
-color:var(--primary-dark)
-}
+        .fade.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.card p{
-font-size:.9rem;
-color:#4b5563;
-margin-bottom:.6rem
-}
+        @media(max-width:960px){
+            .hero, .features { grid-template-columns: 1fr; gap: 3rem; }
+            .grid { grid-template-columns: 1fr 1fr; }
+        }
 
-.tag-row{
-display:flex;
-flex-wrap:wrap;
-gap:.35rem
-}
-
-.tag{
-font-size:.75rem;
-padding:.15rem .55rem;
-border-radius:999px;
-background:#f3f4f6
-}
-
-footer{
-border-top:1px solid #dde2eb;
-background:#f9fafb
-}
-
-.footer-inner{
-max-width:1100px;
-margin:auto;
-padding:1.25rem 1.5rem;
-display:flex;
-justify-content:space-between;
-font-size:.8rem;
-color:#6b7280
-}
-
-@media(max-width:900px){
-.hero{grid-template-columns:1fr}
-.grid-3{grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:640px){
-.nav-links{display:none}
-.grid-3{grid-template-columns:1fr}
-}
-</style>
+        @media(max-width:600px){
+            .grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+            .hero { padding: 3rem 0; }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-<div class="nav">
-<div class="logo">SafeEnv<span>Consulting</span></div>
-<nav class="nav-links">
-<a href="#uslugi">Usługi</a>
-<a href="#podejscie">Podejście</a>
-<a href="#kontakt">Kontakt</a>
-</nav>
-</div>
+    <div class="container nav">
+        <a href="#" class="logo">SafeEnv<span>Consulting</span></a>
+        <nav>
+            <a href="#uslugi">Usługi</a>
+            <a href="#proces">Jak pracujemy</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </div>
 </header>
 
-<main>
+<section class="container hero">
+    <div>
+        <h1>Bezpieczeństwo pracy i ekologia w Twoim biznesie</h1>
+        <p>
+            Dostarczamy gotowe rozwiązania w zakresie BHP i ochrony środowiska, które pozwalają Ci skupić się na rozwoju firmy, a nam zostawić zgodność z przepisami.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a class="btn btn-primary" href="#kontakt">Darmowa konsultacja</a>
+            <a class="btn btn-outline" href="#uslugi">Poznaj zakres usług</a>
+        </div>
+    </div>
 
-<section class="hero">
-
-<div>
-
-<div class="hero-badge">
-<span></span>
-Kompleksowe wsparcie BHP i środowiskowe
-</div>
-
-<h1>
-Bezpieczeństwo pracy i środowiska<br>
-<span>w jednym, spójnym systemie</span>
-</h1>
-
-<p>
-Pomagamy firmom budować bezpieczne miejsca pracy, spełniać wymagania prawne
-oraz rozwijać nowoczesne systemy zarządzania środowiskowego.
-</p>
-
-<ul class="hero-list">
-<li><div class="dot"></div>Audyt BHP, ocena ryzyka zawodowego, szkolenia pracowników</li>
-<li><div class="dot"></div>Ochrona środowiska: pozwolenia, ewidencja, raportowanie</li>
-<li><div class="dot"></div>Systemy zarządzania środowiskowego (np. ISO 14001)</li>
-</ul>
-
-<div class="hero-actions">
-<a href="#kontakt" class="btn btn-primary">Umów konsultację</a>
-<a href="#uslugi" class="btn btn-outline">Zobacz zakres usług</a>
-</div>
-
-</div>
-
-<aside class="hero-aside">
-
-<h2>Dlaczego firmy wybierają współpracę z nami?</h2>
-
-<ul class="aside-list">
-<li><strong>Praktyczne podejście</strong> – rozwiązania dopasowane do realiów zakładu.</li>
-<li><strong>Aktualna wiedza</strong> – śledzimy zmiany w prawie BHP i ochrony środowiska.</li>
-<li><strong>Odciążenie kadry</strong> – przejmujemy formalności i dokumentację.</li>
-<li><strong>Spójny system</strong> – łączymy BHP i środowisko w jednym systemie.</li>
-</ul>
-
-</aside>
-
+    <div class="hero-card">
+        <h4 style="margin-bottom: 1.5rem; color: var(--primary-dark);">Co zyskujesz?</h4>
+        <ul class="checklist">
+            <li><strong>Bezpieczeństwo prawne</strong> – pełna zgodność z PIP i GIOŚ.</li>
+            <li><strong>Optymalizacja kosztów</strong> – redukcja opłat środowiskowych.</li>
+            <li><strong>Prestiż</strong> – wdrożenie standardów ISO i ESG.</li>
+            <li><strong>Spokój</strong> – stały nadzór ekspertów 24/7.</li>
+        </ul>
+    </div>
 </section>
 
-<section id="uslugi">
+<section id="uslugi" class="container fade">
+    <div class="section-header">
+        <h2 class="section-title">Nasze specjalizacje</h2>
+        <p>Wspieramy firmy produkcyjne, budowlane i usługowe.</p>
+    </div>
 
-<div class="section-header">
-<div class="section-kicker">Oferta</div>
-<h2 class="section-title">Usługi w zakresie BHP i ochrony środowiska</h2>
-<p class="section-subtitle">
-Wspieramy zarówno w pojedynczych zadaniach, jak i w stałej obsłudze firm.
-</p>
-</div>
+    <div class="grid">
+        <div class="card">
+            <div style="font-size: 2rem;">🛡️</div>
+            <h3>Nadzór BHP</h3>
+            <p>Szkolenia wstępne i okresowe, ocena ryzyka zawodowego oraz audyty warunków pracy.</p>
+            <div class="tag-container">
+                <span class="tag">Szkolenia</span>
+                <span class="tag">PPOŻ</span>
+            </div>
+        </div>
 
-<div class="grid-3">
+        <div class="card">
+            <div style="font-size: 2rem;">🌿</div>
+            <h3>Ekologia i BDO</h3>
+            <p>Pełna obsługa systemu BDO, sprawozdawczość środowiskowa i gospodarka odpadami.</p>
+            <div class="tag-container">
+                <span class="tag">Odpady</span>
+                <span class="tag">KOBiZE</span>
+            </div>
+        </div>
 
-<div class="card">
-<h3>Bezpieczeństwo i higiena pracy</h3>
-<p>Audyt BHP, ocena ryzyka, instrukcje stanowiskowe oraz szkolenia.</p>
-<div class="tag-row">
-<span class="tag">Audyt BHP</span>
-<span class="tag">Ocena ryzyka</span>
-<span class="tag">Szkolenia</span>
-</div>
-</div>
-
-<div class="card">
-<h3>Ochrona środowiska</h3>
-<p>Pomagamy spełniać wymagania prawne i prowadzić dokumentację środowiskową.</p>
-<div class="tag-row">
-<span class="tag">Pozwolenia</span>
-<span class="tag">Odpady</span>
-<span class="tag">Emisje</span>
-</div>
-</div>
-
-<div class="card">
-<h3>Zarządzanie środowiskowe</h3>
-<p>Wdrażamy systemy zarządzania środowiskowego np. ISO 14001.</p>
-<div class="tag-row">
-<span class="tag">ISO 14001</span>
-<span class="tag">Audyt</span>
-<span class="tag">ESG</span>
-</div>
-</div>
-
-</div>
-
+        <div class="card">
+            <div style="font-size: 2rem;">📊</div>
+            <h3>Wdrożenia ISO</h3>
+            <p>Przygotowanie firmy do certyfikacji ISO 14001 oraz ISO 45001 od A do Z.</p>
+            <div class="tag-container">
+                <span class="tag">ISO 14001</span>
+                <span class="tag">ESG</span>
+            </div>
+        </div>
+    </div>
 </section>
 
-</main>
+<section id="proces" class="container fade" style="background: #f1f5f9; border-radius: 40px; margin: 2rem auto;">
+    <div class="container">
+        <div class="features">
+            <div>
+                <h2 class="section-title">Model współpracy</h2>
+                <p style="margin-bottom: 2rem;">Przejrzysty proces, dzięki któremu wiesz na czym stoisz.</p>
+                <ul class="checklist">
+                    <li><strong>01. Audyt wstępny</strong> – weryfikujemy braki w dokumentacji.</li>
+                    <li><strong>02. Strategia</strong> – tworzymy harmonogram naprawczy.</li>
+                    <li><strong>03. Realizacja</strong> – wdrażamy procedury i szkolimy kadrę.</li>
+                    <li><strong>04. Monitoring</strong> – trzymamy rękę na pulsie zmian prawnych.</li>
+                </ul>
+            </div>
 
-<footer>
-<div class="footer-inner">
-<div>© <span id="year"></span> SafeEnv Consulting</div>
-<div>Polityka prywatności · RODO</div>
-</div>
+            <div class="contact-box">
+                <h3 style="margin-bottom: 1rem;">Zapytaj o ofertę</h3>
+                <form id="contact-form">
+                    <label for="name">Imię lub Nazwa firmy</label>
+                    <input type="text" id="name" placeholder="np. Jan Kowalski / Eco-Fix Sp. z o.o.">
+
+                    <label for="email">E-mail kontaktowy</label>
+                    <input type="email" id="email" placeholder="twoj@email.pl">
+
+                    <label for="msg">W czym możemy pomóc?</label>
+                    <textarea id="msg" rows="4" placeholder="Opisz krótko profil Twojej działalności..."></textarea>
+
+                    <button class="btn btn-primary" type="submit" style="width: 100%;">Wyślij zapytanie</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="kontakt">
+    <div class="container">
+        <h2 style="color: white; margin-bottom: 1.5rem;">Zacznijmy współpracę</h2>
+        <p>📍 biuro@safeenv.pl | 📞 +48 123 456 789 | Polska</p>
+        <div style="margin-top: 2rem; border-top: 1px solid #334155; padding-top: 2rem; font-size: 0.8rem;">
+            © <span id="year"></span> SafeEnv Consulting. Wszystkie prawa zastrzeżone.
+        </div>
+    </div>
 </footer>
 
 <script>
-document.getElementById('year').textContent=new Date().getFullYear();
+    // Automatyczny rok
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animacje wejścia (Intersection Observer)
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+    // Prosta obsługa formularza
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Dziękujemy za wiadomość! Skontaktujemy się w ciągu 24h.');
+        this.reset();
+    });
 </script>
 
 </body>
