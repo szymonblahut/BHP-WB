@@ -420,10 +420,10 @@
 </footer>
 
 <script>
-    // Automatyczny rok
+    // 1. Automatyczny rok w stopce
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Animacje wejścia (Intersection Observer)
+    // 2. Animacje wejścia (Intersection Observer)
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -434,36 +434,45 @@
 
     document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
-    // Prosta obsługa formularza
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Dziękujemy za wiadomość! Skontaktujemy się w ciągu 24h.');
-        this.reset();
-    });
-</script>
-<script>
+    // 3. Obsługa formularza Google Sheets
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyphq9baWf9prDfiDdHHjgvqWrXm8-Wo72vMICRZ3v9PCXomD65K5M8t3vFU7etpJj7/exec';
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
+    const msgBox = document.getElementById('form-message');
 
     form.addEventListener('submit', e => {
         e.preventDefault();
+        
         btn.disabled = true;
         btn.innerText = 'Wysyłanie...';
+        btn.style.opacity = '0.7';
 
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                alert('Dziękujemy! Dane zostały zapisane w arkuszu.');
+                // Wyświetlenie ładnego komunikatu zamiast alertu
+                msgBox.innerText = 'Dziękujemy! Twoje zapytanie zostało zapisane w arkuszu.';
+                msgBox.style.display = 'block';
+                msgBox.style.background = '#f4fce3'; 
+                msgBox.style.color = '#2b8a3e';
+                
                 btn.disabled = false;
                 btn.innerText = 'Wyślij zapytanie';
+                btn.style.opacity = '1';
                 form.reset();
+
+                // Ukryj komunikat po 5 sekundach
+                setTimeout(() => { msgBox.style.display = 'none'; }, 5000);
             })
             .catch(error => {
-                alert('Błąd! Spróbuj ponownie.');
+                msgBox.innerText = 'Wystąpił błąd. Spróbuj ponownie lub napisz na biuro@safeenv.pl';
+                msgBox.style.display = 'block';
+                msgBox.style.background = '#fff5f5';
+                msgBox.style.color = '#c92a2a';
+                
                 btn.disabled = false;
-                btn.innerText = 'Wyślij zapytanie';
+                btn.innerText = 'Wyślij ponownie';
+                btn.style.opacity = '1';
+                console.error('Error!', error.message);
             });
     });
 </script>
-</body>
-</html>
