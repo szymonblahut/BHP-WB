@@ -2,10 +2,8 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BHP i Ochrona Środowiska | SafeEnv Consulting</title>
-    <meta name="description" content="Kompleksowe wsparcie BHP, ochrony środowiska oraz wdrażanie systemów ISO 14001 dla firm produkcyjnych i usługowych.">
-
     <style>
         :root {
             --primary: #0b7285;
@@ -16,288 +14,67 @@
             --text: #1f2933;
             --text-light: #4b5563;
             --shadow: 0 10px 30px rgba(0,0,0,0.05);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s ease;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: auto; padding: 0 1.5rem; }
 
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 2rem;
-        }
-
-        /* --- Header --- */
-        header {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #eef2f6;
-            z-index: 1000;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 0;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            text-decoration: none;
-        }
-
+        /* Header */
+        header { position: sticky; top: 0; background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid #eef2f6; z-index: 1000; }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: var(--primary-dark); text-decoration: none; }
         .logo span { color: var(--accent); }
+        nav a { margin-left: 1.5rem; font-size: 0.9rem; font-weight: 500; color: var(--text-light); text-decoration: none; }
 
-        nav a {
-            margin-left: 2rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-light);
-            text-decoration: none;
-            transition: var(--transition);
-        }
+        /* Hero Section */
+        .hero { padding: 4rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; margin-bottom: 1.5rem; color: var(--primary-dark); }
+        .hero p { margin-bottom: 2rem; font-size: 1.1rem; color: var(--text-light); }
+        
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn { padding: 0.8rem 1.5rem; border-radius: 10px; font-weight: 600; text-decoration: none; transition: var(--transition); display: inline-block; text-align: center; }
+        .btn-primary { background: var(--primary); color: white; border: none; }
+        .btn-outline { border: 2px solid #e2e8f0; color: var(--text); }
 
-        nav a:hover { color: var(--primary); }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding: 6rem 0;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--primary-dark);
-            letter-spacing: -0.02em;
-        }
-
-        .hero p {
-            margin-bottom: 2.5rem;
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 500px;
-        }
-
-        /* --- Buttons --- */
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 1.8rem;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 4px 14px rgba(11, 114, 133, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            border: 2px solid #e2e8f0;
-            background: transparent;
-            color: var(--text);
-            margin-left: 0.8rem;
-        }
-
-        .btn-outline:hover { background: #f1f5f9; }
-
-        .hero-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 24px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-            position: relative;
-        }
-
-        .hero-card::before {
-            content: '';
-            position: absolute;
-            top: -10px; right: -10px;
-            width: 50px; height: 50px;
-            background: var(--accent);
-            z-index: -1;
-            border-radius: 12px;
-            opacity: 0.3;
-        }
-
-        /* --- Services --- */
-        section { padding: 5rem 0; }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid #f0f4f8;
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow);
-            border-color: var(--primary);
-        }
-
-        .card h3 {
-            margin: 1rem 0;
-            color: var(--primary-dark);
-        }
-
-        .tag-container { margin-top: 1.5rem; }
-
-        .tag {
-            background: #f1f5f9;
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-radius: 6px;
-            margin-right: 0.4rem;
-        }
-
-        /* --- Checklist --- */
+        .hero-card { background: var(--white); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); border-right: 5px solid var(--accent); }
         .checklist { list-style: none; }
-        .checklist li {
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
+        .checklist li { margin-bottom: 1rem; display: flex; gap: 0.8rem; align-items: flex-start; }
+        .checklist li::before { content: '✓'; color: var(--accent); font-weight: bold; }
 
-        .checklist li::before {
-            content: '✓';
-            color: var(--accent);
-            font-weight: bold;
-            background: #f4fce3;
-            width: 24px; height: 24px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%;
-            flex-shrink: 0;
-            margin-top: 4px;
-        }
+        /* Services Grid */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+        .card { background: var(--white); padding: 2rem; border-radius: 15px; border: 1px solid #eef2f6; transition: var(--transition); }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 
-        /* --- Form --- */
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
+        /* Contact Form */
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 4rem 0; }
+        .contact-box { background: var(--white); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); }
+        input, textarea { width: 100%; padding: 0.8rem; margin: 0.5rem 0 1rem; border-radius: 8px; border: 1px solid #ddd; font-family: inherit; }
 
-        .contact-box {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 0.9rem;
-            margin-top: 0.5rem;
-            margin-bottom: 1.2rem;
-            border-radius: 10px;
-            border: 2px solid #eef2f6;
-            font-family: inherit;
-            transition: var(--transition);
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: #fff;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: #1f2933;
-            color: #94a3b8;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        /* --- Animations --- */
-        .fade {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .fade.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        footer { background: #1f2933; color: white; padding: 3rem 0; text-align: center; }
 
         /* --- POPRAWKI MOBILNE --- */
         @media (max-width: 960px) {
-            .hero { 
-                grid-template-columns: 1fr; 
-                text-align: center;
-                padding: 4rem 0;
-            }
-            .hero p { margin-left: auto; margin-right: auto; }
+            .hero, .features { grid-template-columns: 1fr; text-align: center; }
             .hero-btns { justify-content: center; }
             .grid { grid-template-columns: 1fr 1fr; }
-            .features { grid-template-columns: 1fr; }
+            .hero-card { order: 2; } /* Karta wskakuje pod tekst */
         }
 
-        @media (max-width: 650px) {
-            .nav { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 0.5rem; }
+        @media (max-width: 600px) {
+            .nav { flex-direction: column; gap: 0.8rem; }
+            nav a { margin: 0 0.5rem; font-size: 0.8rem; }
             .grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
-            .btn { width: 100%; margin-left: 0; margin-bottom: 0.5rem; }
-            .hero-card { padding: 1.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .btn { width: 100%; margin: 0; }
+            .hero-btns { flex-direction: column; }
+            .container { padding: 0 1rem; }
         }
     </style>
 </head>
-
 <body>
 
 <header>
@@ -305,169 +82,82 @@
         <a href="#" class="logo">SafeEnv<span>Consulting</span></a>
         <nav>
             <a href="#uslugi">Usługi</a>
-            <a href="#proces">Jak pracujemy</a>
             <a href="#kontakt">Kontakt</a>
         </nav>
     </div>
 </header>
 
-<section class="container hero">
-    <div>
+<div class="container hero">
+    <div class="hero-content">
         <h1>Bezpieczeństwo pracy i ekologia w Twoim biznesie</h1>
-        <p>
-            Dostarczamy gotowe rozwiązania w zakresie BHP i ochrony środowiska, które pozwalają Ci skupić się na rozwoju firmy, a nam zostawić zgodność z przepisami.
-        </p>
-        <div class="hero-btns" style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a class="btn btn-primary" href="#kontakt">Darmowa konsultacja</a>
-            <a class="btn btn-outline" href="#uslugi">Poznaj zakres usług</a>
+        <p>Gotowe rozwiązania BHP i ochrony środowiska dla Twojej firmy.</p>
+        <div class="hero-btns">
+            <a href="#kontakt" class="btn btn-primary">Darmowa konsultacja</a>
+            <a href="#uslugi" class="btn btn-outline">Zakres usług</a>
         </div>
     </div>
-
     <div class="hero-card">
-        <h4 style="margin-bottom: 1.5rem; color: var(--primary-dark); font-size: 1.2rem;">Co zyskujesz?</h4>
+        <h4 style="margin-bottom: 1rem; color: var(--primary-dark);">Co zyskujesz?</h4>
         <ul class="checklist">
-            <li>
-                <div><strong>Bezpieczeństwo prawne</strong> – pełna zgodność z wymogami PIP oraz GIOŚ.</div>
-            </li>
-            <li>
-                <div><strong>Optymalizacja kosztów</strong> – realna redukcja opłat środowiskowych.</div>
-            </li>
-            <li>
-                <div><strong>Prestiż i rozwój</strong> – skuteczne wdrożenie standardów ISO oraz ESG.</div>
-            </li>
-            <li>
-                <div><strong>Spokój i wsparcie</strong> – stały nadzór ekspertów dostępny 24/7.</div>
-            </li>
+            <li><strong>Zgodność z przepisami</strong> PIP i GIOŚ.</li>
+            <li><strong>Niższe koszty</strong> opłat środowiskowych.</li>
+            <li><strong>Wsparcie ekspertów</strong> dostępne 24/7.</li>
         </ul>
     </div>
-</section>
+</div>
 
-<section id="uslugi" class="container fade">
-    <div class="section-header">
-        <h2 class="section-title">Nasze specjalizacje</h2>
-        <p>Wspieramy firmy produkcyjne, budowlane i usługowe.</p>
-    </div>
-
+<section id="uslugi" class="container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Nasze Usługi</h2>
     <div class="grid">
-        <div class="card">
-            <div style="font-size: 2rem;">🛡️</div>
-            <h3>Nadzór BHP</h3>
-            <p>Szkolenia wstępne i okresowe, ocena ryzyka zawodowego oraz audyty warunków pracy.</p>
-            <div class="tag-container">
-                <span class="tag">Szkolenia</span>
-                <span class="tag">PPOŻ</span>
-            </div>
-        </div>
+        <div class="card"><h3>🛡️ Nadzór BHP</h3><p>Szkolenia i audyty warunków pracy.</p></div>
+        <div class="card"><h3>🌿 Ekologia</h3><p>Obsługa BDO i sprawozdawczość.</p></div>
+        <div class="card"><h3>📊 ISO</h3><p>Wdrożenia norm 14001 i 45001.</p></div>
+    </div>
+</section>
 
-        <div class="card">
-            <div style="font-size: 2rem;">🌿</div>
-            <h3>Ekologia i BDO</h3>
-            <p>Pełna obsługa systemu BDO, sprawozdawczość środowiskowa i gospodarka odpadami.</p>
-            <div class="tag-container">
-                <span class="tag">Odpady</span>
-                <span class="tag">KOBiZE</span>
-            </div>
+<section id="kontakt" class="container">
+    <div class="features">
+        <div>
+            <h2>Skontaktuj się</h2>
+            <p>Pomożemy Ci przejść przez zawiłe przepisy.</p>
         </div>
-
-        <div class="card">
-            <div style="font-size: 2rem;">📊</div>
-            <h3>Wdrożenia ISO</h3>
-            <p>Przygotowanie firmy do certyfikacji ISO 14001 oraz ISO 45001 od A do Z.</p>
-            <div class="tag-container">
-                <span class="tag">ISO 14001</span>
-                <span class="tag">ESG</span>
-            </div>
+        <div class="contact-box">
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Imię / Firma" required>
+                <input type="email" name="email" placeholder="Twój E-mail" required>
+                <textarea name="msg" rows="4" placeholder="W czym pomóc?" required></textarea>
+                <button type="submit" id="submit-btn" class="btn btn-primary" style="width:100%">Wyślij</button>
+            </form>
+            <div id="form-message" style="display:none; margin-top:1rem; text-align:center;"></div>
         </div>
     </div>
 </section>
 
-<section id="proces" class="container fade" style="background: #f1f5f9; border-radius: 40px; margin: 2rem auto;">
-    <div class="container">
-        <div class="features">
-            <div>
-                <h2 class="section-title">Model współpracy</h2>
-                <p style="margin-bottom: 2rem;">Przejrzysty proces, dzięki któremu wiesz na czym stoisz.</p>
-                <ul class="checklist">
-                    <li><div><strong>01. Audyt wstępny</strong> – weryfikujemy braki w dokumentacji.</div></li>
-                    <li><div><strong>02. Strategia</strong> – tworzymy harmonogram naprawczy.</div></li>
-                    <li><div><strong>03. Realizacja</strong> – wdrażamy procedury i szkolimy kadrę.</div></li>
-                    <li><div><strong>04. Monitoring</strong> – trzymamy rękę na pulsie zmian prawnych.</div></li>
-                </ul>
-            </div>
-
-            <div class="contact-box"> 
-                <h3 style="margin-bottom: 1rem;">Zapytaj o ofertę</h3>
-                <form id="contact-form">
-                    <label for="name">Imię lub Nazwa firmy</label>
-                    <input type="text" id="name" name="name" placeholder="np. Jan Kowalski / Eco-Fix Sp. z o.o." required>
-
-                    <label for="email">E-mail kontaktowy</label>
-                    <input type="email" id="email" name="email" placeholder="twoj@email.pl" required>
-
-                    <label for="msg">W czym możemy pomóc?</label>
-                    <textarea id="msg" name="msg" rows="4" placeholder="Opisz krótko profil Twojej działalności..." required></textarea>
-
-                    <button class="btn btn-primary" type="submit" id="submit-btn" style="width: 100%;">Wyślij zapytanie</button>
-                </form>
-                <div id="form-message" style="display:none; margin-top: 1rem; padding: 1rem; border-radius: 10px; text-align: center;"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer id="kontakt">
-    <div class="container">
-        <h2 style="color: white; margin-bottom: 1.5rem;">Zacznijmy współpracę</h2>
-        <p>📍 biuro@safeenv.pl | 📞 +48 123 456 789 | Polska</p>
-        <div style="margin-top: 2rem; border-top: 1px solid #334155; padding-top: 2rem; font-size: 0.8rem;">
-            © <span id="year"></span> SafeEnv Consulting. Wszystkie prawa zastrzeżone.
-        </div>
-    </div>
+<footer>
+    <p>© 2026 SafeEnv Consulting | biuro@safeenv.pl</p>
 </footer>
 
 <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
-
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyZwHjFjJ2_dLSSiFAYgfGdyx4f6ilALjxpL9JvVT3Nr8EF0g7w0iXTHbBoQYOhHcBxug/exec';
     const form = document.getElementById('contact-form');
-    const btn = document.getElementById('submit-btn');
-    const msgBox = document.getElementById('form-message');
-
+    
     form.addEventListener('submit', e => {
         e.preventDefault();
-        btn.disabled = true;
+        const btn = document.getElementById('submit-btn');
         btn.innerText = 'Wysyłanie...';
-
+        
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                msgBox.innerText = 'Dziękujemy! Twoje zapytanie zostało zapisane.';
-                msgBox.style.display = 'block';
-                msgBox.style.background = '#f4fce3'; 
-                msgBox.style.color = '#2b8a3e';
-                btn.disabled = false;
-                btn.innerText = 'Wyślij zapytanie';
-                form.reset();
-                setTimeout(() => { msgBox.style.display = 'none'; }, 5000);
-            })
-            .catch(error => {
-                msgBox.innerText = 'Błąd. Napisz na biuro@safeenv.pl';
-                msgBox.style.display = 'block';
-                msgBox.style.background = '#fff5f5';
-                msgBox.style.color = '#c92a2a';
-                btn.disabled = false;
-            });
+        .then(() => {
+            document.getElementById('form-message').innerText = 'Wysłano pomyślnie!';
+            document.getElementById('form-message').style.display = 'block';
+            btn.innerText = 'Wyślij';
+            form.reset();
+        })
+        .catch(() => {
+            alert('Błąd wysyłania. Spróbuj później.');
+            btn.innerText = 'Wyślij';
+        });
     });
 </script>
-
 </body>
 </html>
